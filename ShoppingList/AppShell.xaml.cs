@@ -1,9 +1,13 @@
-﻿namespace ShoppingList;
+﻿using ShoppingList.Views;
+
+namespace ShoppingList;
 
 public partial class AppShell : Shell
 {
 	public AppShell()
 	{
-		InitializeComponent();
+		InitializeComponent();		
+		Routing.RegisterRoute("products", typeof(ProductsPage));
+		Routing.RegisterRoute("addproduct", typeof(AddProductPage));
 	}
 }
