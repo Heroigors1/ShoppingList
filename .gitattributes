@@ -1,0 +1,2 @@
+ShoppingList/obj/** filter=lfs diff=lfs merge=lfs -text
+ShoppingList/Debug/** filter=lfs diff=lfs merge=lfs -text
