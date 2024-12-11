@@ -5,5 +5,7 @@
              Title="AddProductPage">
     <VerticalStackLayout>
         <Entry Placeholder="Enter name of product"/>
+        <Picker
+            x:Name="CategoryPicker"/>
     </VerticalStackLayout>
 </ContentPage>
