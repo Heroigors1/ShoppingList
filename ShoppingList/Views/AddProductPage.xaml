@@ -4,9 +4,6 @@
              x:Class="ShoppingList.Views.AddProductPage"
              Title="AddProductPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Entry Placeholder="Enter name of product"/>
     </VerticalStackLayout>
 </ContentPage>

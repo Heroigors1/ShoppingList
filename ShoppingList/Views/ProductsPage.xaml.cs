@@ -8,9 +8,11 @@ namespace ShoppingList.Views;
 public partial class ProductsPage : ContentPage
 {
 	public ObservableCollection<Product> Products { get; set; }
+	public ObservableCollection<Category> Categories { get; set; }
 	public ProductsPage()
 	{
-		Products = Products = new ObservableCollection<Product>();
+		Products = new ObservableCollection<Product>();
+		Categories = new ObservableCollection<Category>();
 		InitializeComponent();
 		BindingContext = this;
 	}
@@ -38,6 +40,7 @@ public partial class ProductsPage : ContentPage
 		}
 		else
 		{
+			GenerateDefaultProducts();
 			var xmlDoc = XDocument.Load(fullpath);
 			var products = xmlDoc.Root.Elements("Product")
 				.Select(x => new Product
@@ -54,6 +57,38 @@ public partial class ProductsPage : ContentPage
 			}
 		}
 
+	}
+
+	private void LoadCategories()
+	{
+		var filepath = "categories.xml";
+
+		var fullpath = Path.Combine(FileSystem.AppDataDirectory, filepath);
+
+		List<Category> DefaultCategories = new List<Category>
+		{
+			new Category{Id = 1, Name = "Bread"},
+			new Category{Id = 2, Name = "Drinks"},
+			new Category{Id = 3, Name = "Vegetables"}
+		};
+
+		var xml = new XDocument(
+			new XElement("Categories",
+					DefaultCategories.Select(c => 
+						new XElement("Category",
+							new XElement("Id", c.Id),
+							new XElement("Name", c.Name)
+						)
+					))
+			);
+
+		Categories.Clear();
+		foreach(var category in DefaultCategories)
+		{
+			Categories.Add(category);
+		}
+
+		xml.Save(fullpath);
 	}
 
 	private void GenerateDefaultProducts()

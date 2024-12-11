@@ -17,7 +17,9 @@
         <CollectionView ItemsSource="{Binding Products}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <views:ProductView />
+                    <VerticalStackLayout Spacing="5">
+                        <views:ProductView />
+                    </VerticalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
