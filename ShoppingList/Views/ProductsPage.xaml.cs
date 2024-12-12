@@ -9,12 +9,18 @@ namespace ShoppingList.Views;
 
 public partial class ProductsPage : ContentPage
 {
-	public ObservableCollection<Product> Products { get; set; }
+	public ObservableCollection<ProductModel> Products { get; set; }
 	public ObservableCollection<Category> Categories { get; set; }
 	public FileService fileService { get; set; }
+	public class ProductModel
+	{
+		public int Id { get; set; }
+		public string Name { get; set; }
+		public string Category { get; set; }
+	}
 	public ProductsPage()
 	{
-		Products = new ObservableCollection<Product>();
+		Products = new ObservableCollection<ProductModel>();
 		Categories = new ObservableCollection<Category>();
 		fileService = new FileService();
 		InitializeComponent();
@@ -40,7 +46,11 @@ public partial class ProductsPage : ContentPage
 		Products.Clear();
 		foreach (var product in products)
 		{
-			Products.Add(product);
+			Products.Add(new ProductModel{
+				Id = product.Id,
+				Name = product.Name,
+				Category = fileService.GetCategoryNameById(product.CategoryId),
+			});
 		}
 	}
 

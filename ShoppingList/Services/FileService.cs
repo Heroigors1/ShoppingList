@@ -10,8 +10,10 @@ public class FileService
 {
     ObservableCollection<Product> Products = new ObservableCollection<Product>();
     ObservableCollection<Category> Categories = new ObservableCollection<Category>();
+	ObservableCollection<Volume> Volumes = new ObservableCollection<Volume>();
     public ObservableCollection<Product> LoadProducts()
     {
+		Products.Clear();
         var filename = "products.xml";
 
         var fullpath = Path.Combine(FileSystem.AppDataDirectory, filename);
@@ -136,4 +138,90 @@ public class FileService
 
 		xml.Save(fullpath);
     }
+
+	public int GetCategoryIdByName(string categoryName)
+	{
+		if (Categories.Count == 0)
+		{
+			LoadCategories();
+		}
+
+		var category = Categories.FirstOrDefault(c => string.Equals(c.Name, categoryName, StringComparison.OrdinalIgnoreCase));
+
+		return category.Id;
+	}
+
+	public string GetCategoryNameById(int categoryId)
+	{
+		if (Categories.Count == 0)
+		{
+			LoadCategories();
+		}
+
+		var category = Categories.FirstOrDefault(c => c.Id == categoryId);
+
+		return category.Name;
+	}
+
+	public ObservableCollection<Volume> LoadVolumes()
+	{
+		var filename = "volumes.xml";
+
+        var fullpath = Path.Combine(FileSystem.AppDataDirectory, filename);
+
+		if(!File.Exists(fullpath))
+        {
+            GenerateDefaultVolumes();
+        }
+        else
+        {
+            //GenerateDefaultVolumes();
+			var xmlDoc = XDocument.Load(fullpath);
+			var volumes = xmlDoc.Root.Elements("Volume")
+				.Select(x => new Volume
+				{
+					Name = (string)x.Element("Name")
+				});
+
+			Volumes.Clear();
+			foreach (var volume in volumes)
+			{
+				Volumes.Add(volume);
+			}
+        }
+
+		return Volumes;
+	}
+
+	private void GenerateDefaultVolumes()
+	{
+		var filename = "volumes.xml";
+
+        var fullpath = Path.Combine(FileSystem.AppDataDirectory, filename);
+
+        List<Volume> DefaultVolumes = new List<Volume>{
+            new Volume{Name = "psc"},
+			new Volume{Name = "l"},
+			new Volume{Name = "ml"},
+			new Volume{Name = "g"},
+			new Volume{Name = "kg"},
+        };
+
+        var xml = new XDocument(
+			new XElement("Categories",
+					DefaultVolumes.Select(v => 
+						new XElement("Volume",
+							new XElement("Name", v.Name)
+						)
+					))
+			);
+
+		Volumes.Clear();
+		foreach(var volume in DefaultVolumes)
+		{
+			Volumes.Add(volume);
+		}
+
+		xml.Save(fullpath);
+	}
 }

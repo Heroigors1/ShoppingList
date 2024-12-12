@@ -3,9 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShoppingList.Views.AddProductPage"
              Title="AddProductPage">
-    <VerticalStackLayout>
-        <Entry Placeholder="Enter name of product"/>
+    <VerticalStackLayout Margin="10" Spacing="15">
+        <Entry 
+            x:Name="productNameEntry"
+            Placeholder="Enter name of product"/>
         <Picker
             x:Name="CategoryPicker"/>
+        <Picker
+            x:Name="VolumePicker"/>
+        <Button
+            Text="Add"
+            Clicked="OnAddBtnClicked"/>
     </VerticalStackLayout>
 </ContentPage>
