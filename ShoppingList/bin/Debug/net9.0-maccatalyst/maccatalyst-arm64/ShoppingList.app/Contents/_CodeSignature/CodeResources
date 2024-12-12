@@ -36,6 +36,10 @@
 		<data>
 		BR4+3SKV8NWWDL8M7SnZOEKgtwQ=
 		</data>
+		<key>Resources/basketfill.png</key>
+		<data>
+		oXsYa7f7jm8dl6igRlQhgz2R3Ys=
+		</data>
 		<key>Resources/dotnet_bot.png</key>
 		<data>
 		k8m04UofgWsUZNxKBNAiH90rnWI=
@@ -47,6 +51,10 @@
 		<key>Resources/dotnet_bot@3x.png</key>
 		<data>
 		2Ikgd4MekBz4KDFadcRsOaz6Qws=
+		</data>
+		<key>Resources/listtask.png</key>
+		<data>
+		5aA1KTRZt5BKfSJ6xRR0GvnJY3w=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -223,14 +231,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UI1Ey1H4jEoM8zJRSIBB57oOmSUSxqsjAKXc+VwJu48=
+			DjfW8O8QrhZx8MFzTlvVFsZfaaFGWIRk2TuSUyspoqk=
 			</data>
 		</dict>
 		<key>MonoBundle/ShoppingList.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ml6J6j/QYXPdfKy1hPDEr6hMdiQ0CJrwiYWqDQG/FdE=
+			+eDBnumns3/QPYWoMko6J2usEe44XWFEuD5UvHsqc0k=
 			</data>
 		</dict>
 		<key>MonoBundle/System.AppContext.dll</key>
@@ -1696,6 +1704,13 @@
 			WWZaILyKrGJNFzD+ZVPUzxhbWOo+zEE7svqCq79UY38=
 			</data>
 		</dict>
+		<key>Resources/basketfill.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6MJUgXLO3Dsp9ook2h4dp2Vp1rz0LqKS+7T5I3wuyYs=
+			</data>
+		</dict>
 		<key>Resources/dotnet_bot.png</key>
 		<dict>
 			<key>hash2</key>
@@ -1715,6 +1730,13 @@
 			<key>hash2</key>
 			<data>
 			xjB46IJZchU4aUkPUeVRhWJViqBU1K6H3B/8RQ1fB7M=
+			</data>
+		</dict>
+		<key>Resources/listtask.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			13jIUn0SAwGg0t/zEYVR04JNLXT7rmE4z98qdGwKo0A=
 			</data>
 		</dict>
 	</dict>

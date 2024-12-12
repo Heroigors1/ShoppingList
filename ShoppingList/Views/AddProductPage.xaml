@@ -7,10 +7,18 @@
         <Entry 
             x:Name="productNameEntry"
             Placeholder="Enter name of product"/>
-        <Picker
-            x:Name="CategoryPicker"/>
-        <Picker
-            x:Name="VolumePicker"/>
+        <HorizontalStackLayout Spacing="15">
+            <VerticalStackLayout>
+                <Label Text="Choose category" />
+                <Picker x:Name="CategoryPicker"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="Choose volume unit" />
+                <Picker x:Name="VolumePicker"/>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+        
         <Button
             Text="Add"
             Clicked="OnAddBtnClicked"/>
