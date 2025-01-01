@@ -12,5 +12,10 @@
         Title="List"
         ContentTemplate="{DataTemplate views:List}"
         Route="list" />
+    
+    <ShellContent
+        Title="Products"
+        ContentTemplate="{DataTemplate views:Products}"
+        Route="products" />
 
 </Shell>
